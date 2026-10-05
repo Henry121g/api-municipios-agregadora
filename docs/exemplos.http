@@ -1,0 +1,30 @@
+# Exemplos executáveis (extensão REST Client do VS Code ou JetBrains HTTP Client).
+# Defina a URL e a sua chave (crie em /painel):
+@base = http://localhost:3000/api/v1
+@chave = mun_COLE_SUA_CHAVE_AQUI
+
+### Busca paginada de municípios
+GET {{base}}/municipios?uf=SP&nome=campinas&pagina=1&por_pagina=20
+Authorization: Bearer {{chave}}
+
+### Dados de um município
+GET {{base}}/municipios/3509502
+X-API-Key: {{chave}}
+
+### Resumo agregado (município + clima + feriados) dos próximos 7 dias
+GET {{base}}/municipios/3509502/resumo
+Authorization: Bearer {{chave}}
+
+### Resumo para um período específico
+GET {{base}}/municipios/3304557/resumo?de=2026-12-20&ate=2027-01-05
+Authorization: Bearer {{chave}}
+
+### Feriados nacionais
+GET {{base}}/feriados/2026
+Authorization: Bearer {{chave}}
+
+### Erro: sem chave (401)
+GET {{base}}/feriados/2026
+
+### Especificação OpenAPI (pública)
+GET {{base}}/openapi.json

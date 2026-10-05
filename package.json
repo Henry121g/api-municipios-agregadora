@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed:demo": "tsx --env-file=.env.local scripts/seed-demo.mts",
-    "test:tempo-real": "tsx --env-file=.env.local scripts/realtime-check.mts"
+    "test:limite": "tsx scripts/rate-limit-check.mts"
   },
   "dependencies": {
     "@sentry/nextjs": "^11.2.0",
