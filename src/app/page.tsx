@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { buttonStyles } from "@/components/ui";
+import { buttonStyles } from "@/components/button-styles";
 
 export default function HomePage() {
   return (

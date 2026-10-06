@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Alert, buttonStyles } from "@/components/ui";
+import { Alert } from "@/components/ui";
+import { buttonStyles } from "@/components/button-styles";
 
 const EXAMPLES = [
   "/api/v1/municipios?uf=SP&nome=campinas",

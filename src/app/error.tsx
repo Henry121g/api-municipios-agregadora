@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { buttonStyles } from "@/components/ui";
+import { buttonStyles } from "@/components/button-styles";
 
 export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
