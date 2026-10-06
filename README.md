@@ -3,7 +3,7 @@
 > Projeto de portfólio desenvolvido com assistência de IA (Claude Code). Os dados vêm de **APIs
 > públicas reais** (IBGE, Open-Meteo e BrasilAPI); contas e chaves são de teste.
 
-**Demonstração:** _pendente de deploy_ · **CI:** ver aba Actions
+**Demonstração:** [api-municipios-agregadora.vercel.app](https://api-municipios-agregadora.vercel.app) (contas de demonstração em configuração) · **CI:** ver aba Actions
 
 <!-- Screenshots reais serão adicionadas após o deploy. -->
 
