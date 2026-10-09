@@ -64,6 +64,7 @@ export const openapi = {
               },
             },
           },
+          "502": problem,
           ...commonErrors,
         },
       },

@@ -38,6 +38,13 @@ describe("fetchJson: timeout e novas tentativas", () => {
     expect(sleep.mock.calls.map((c) => c[0])).toEqual([100, 200]);
   });
 
+  it("envia User-Agent só com ASCII (com acento o IBGE responde 400)", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(new Response("{}", { status: 200 }));
+    await fetchJson("https://x", { fetchImpl, sleep: noSleep });
+    const ua = new Headers(fetchImpl.mock.calls[0][1].headers).get("User-Agent")!;
+    expect(ua).toMatch(/^[\x20-\x7e]+$/);
+  });
+
   it("um timeout real aborta a requisição", async () => {
     const fetchImpl = vi.fn((_: unknown, init?: RequestInit) =>
       new Promise<Response>((_, reject) => init?.signal?.addEventListener("abort", () => reject(init.signal!.reason))),

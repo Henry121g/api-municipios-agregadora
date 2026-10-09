@@ -28,8 +28,12 @@ export function handleList(request: Request) {
       return problem(400, "Parâmetro inválido", "`pagina` deve ser ≥ 1 e `por_pagina` entre 1 e 100.");
     }
     const nome = (sp.get("nome") ?? "").trim().slice(0, 60) || undefined;
-    const r = await listMunicipios(api(), realSources, { uf, nome, pagina, porPagina });
-    return { dados: r.dados, paginacao: r.paginacao, meta: meta([r.fonte]) };
+    try {
+      const r = await listMunicipios(api(), realSources, { uf, nome, pagina, porPagina });
+      return { dados: r.dados, paginacao: r.paginacao, meta: meta([r.fonte]) };
+    } catch {
+      return problem(502, "Fonte indisponível", "O IBGE não respondeu e não há lista em cache para esta UF.");
+    }
   });
 }
 

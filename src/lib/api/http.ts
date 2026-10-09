@@ -27,6 +27,9 @@ export interface FetchOptions {
 
 const defaultSleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** Somente ASCII: com acento (ex.: "portfólio") o IBGE responde 400 a qualquer requisição. */
+export const USER_AGENT = "portfolio-api-municipios (projeto de portfolio)";
+
 export async function fetchJson<T>(url: string, opts: FetchOptions = {}): Promise<T> {
   const { timeoutMs = 3000, retries = 2, backoffMs = 250, fetchImpl = fetch, sleep = defaultSleep } = opts;
   let lastError: SourceError | undefined;
@@ -35,7 +38,7 @@ export async function fetchJson<T>(url: string, opts: FetchOptions = {}): Promis
     try {
       const res = await fetchImpl(url, {
         signal: AbortSignal.timeout(timeoutMs),
-        headers: { Accept: "application/json", "User-Agent": "portfolio-api-municipios (projeto de portfólio)" },
+        headers: { Accept: "application/json", "User-Agent": USER_AGENT },
       });
       if (!res.ok) {
         lastError = new SourceError("http", `HTTP ${res.status}`, res.status);
