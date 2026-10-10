@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { getViewer } from "@/lib/auth";
 import { signOut } from "@/app/(auth)/actions";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: { default: "API de Municípios — dados do IBGE, clima e feriados", template: "%s · API de Municípios" },
@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const navLink = "rounded-md px-2 py-1.5 hover:bg-surface";
 
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="pt-BR" className={`${inter.variable} ${jetbrains.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <a
           href="#conteudo"

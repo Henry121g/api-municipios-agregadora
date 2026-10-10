@@ -1,50 +1,44 @@
 @import "tailwindcss";
 
-/* Paleta com contraste AA nos dois temas. */
+/*
+ * Tema "API de Municípios": tokens adaptados do sistema de design `mission-control` do open-design
+ * (https://github.com/nexu-io/open-design, licença Apache-2.0). Ajustes deste projeto: tons de
+ * texto escurecidos onde preciso para contraste AA (4,5:1) e a cor da marca separada em
+ * preenchimento (botões) e texto (links, logotipo, bordas de foco).
+ */
 :root {
-  --background: #faf8f5;
-  --surface: #ffffff;
-  --foreground: #1c1917;
-  --muted: #57534e;
-  --border: #d6d3d1;
-  --brand: #9a3412;
-  --brand-foreground: #ffffff;
-  --success: #166534;
-  --success-bg: #dcfce7;
-  --danger: #b91c1c;
-  --danger-bg: #fee2e2;
-  --focus: #2563eb;
-  /* Séries de gráfico (paleta validada: CVD e contraste, claro e escuro) */
-  --series-1: #2a78d6;
-  --series-2: #eb6834;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #141210;
-    --surface: #1f1c19;
-    --foreground: #f5f5f4;
-    --muted: #a8a29e;
-    --border: #44403c;
-    --brand: #fb923c;
-    --brand-foreground: #1c1917;
-    --success: #86efac;
-    --success-bg: #14532d;
-    --danger: #fca5a5;
-    --danger-bg: #450a0a;
-    --focus: #93c5fd;
-    --series-1: #3987e5;
-    --series-2: #d95926;
-  }
+  color-scheme: dark;
+  --background: #090b12;
+  --surface: #121722;
+  --surface-warm: #1b2233;
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --border: #2a3447;
+  --brand: #60a5fa;
+  --brand-fill: #60a5fa;
+  --brand-foreground: #06101d;
+  --success: #26de81;
+  --success-bg: #0f2a1e;
+  --danger: #ff6b78;
+  --danger-bg: #2d1218;
+  --focus: #60a5fa;
+  /* Séries de gráfico (paleta validada: daltonismo e contraste ≥ 3:1 sobre a superfície) */
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --face-display: var(--font-inter), system-ui, sans-serif;
+  --face-body: var(--font-inter), system-ui, sans-serif;
+  --face-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-brand: var(--brand);
+  --color-brand-fill: var(--brand-fill);
   --color-brand-foreground: var(--brand-foreground);
   --color-success: var(--success);
   --color-success-bg: var(--success-bg);
@@ -53,13 +47,28 @@
   --color-focus: var(--focus);
   --color-series-1: var(--series-1);
   --color-series-2: var(--series-2);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--face-body);
+  --font-mono: var(--face-mono);
+  --font-display: var(--face-display);
+}
+
+/* Raios do sistema: controles (botões, campos) e cartões. */
+@theme {
+  --radius-md: 10px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-2xl: 16px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+h1,
+h2 {
+  font-family: var(--face-display);
+  letter-spacing: -0.02em;
 }
 
 :focus-visible {

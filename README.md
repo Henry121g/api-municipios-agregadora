@@ -97,6 +97,13 @@ gratuito, para que o tráfego da API (contadores e cache) não interfira nas out
   interface e em `clima.atribuicao`). O cache mantém o volume baixo.
 - **IBGE** e **BrasilAPI:** APIs públicas e gratuitas.
 
+## Design
+
+Identidade visual baseada no sistema `mission-control` do [open-design](https://github.com/nexu-io/open-design)
+(licença Apache-2.0): painéis escuros azul-marinho, azul de status, código em fonte mono. Os tokens foram adaptados em `src/app/globals.css`, com
+tons de texto ajustados para contraste AA (WCAG 4,5:1) e a cor da marca separada em preenchimento
+(botões) e texto (links e foco). Cada app do portfólio usa um sistema diferente.
+
 ## Arquitetura
 
 ```
