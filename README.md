@@ -5,7 +5,18 @@
 
 **Demonstração:** [api-municipios-agregadora.vercel.app](https://api-municipios-agregadora.vercel.app) (contas de demonstração em configuração) · **CI:** ver aba Actions
 
-<!-- Screenshots reais serão adicionadas após o deploy. -->
+
+## Telas
+
+<table>
+  <tr>
+    <td width="33%"><a href="docs/telas/docs.png"><img src="docs/telas/docs.png" alt="Documentação com exemplos e teste ao vivo"></a><br><sub>Documentação com exemplos e teste ao vivo</sub></td>
+    <td width="33%"><a href="docs/telas/demo-resumo.png"><img src="docs/telas/demo-resumo.png" alt="Resumo agregado (IBGE, Open-Meteo e BrasilAPI) com a origem de cada fonte"></a><br><sub>Resumo agregado (IBGE, Open-Meteo e BrasilAPI) com a origem de cada fonte</sub></td>
+    <td width="33%"><a href="docs/telas/inicio.png"><img src="docs/telas/inicio.png" alt="Página inicial"></a><br><sub>Página inicial</sub></td>
+  </tr>
+</table>
+
+<sub>Capturas com os dados fictícios da demonstração.</sub>
 
 ## O problema
 
