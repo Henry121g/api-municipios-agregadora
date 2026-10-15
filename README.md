@@ -92,6 +92,13 @@ A chave (`mun_` + 64 hex) é exibida uma vez; o banco guarda só o SHA-256 (busc
 As demos com interface compartilham um projeto Supabase; esta API usa o segundo projeto do plano
 gratuito, para que o tráfego da API (contadores e cache) não interfira nas outras.
 
+### 8. Cadeia TLS incompleta do IBGE
+O servidor do IBGE envia só o próprio certificado, sem o intermediário da Sectigo. Navegadores e o curl
+do Windows completam a cadeia sozinhos; o Node.js (Vercel) não, e a conexão falhava de forma
+intermitente. O intermediário público fica em `src/lib/api/cadeia-tls.ts`, somado às raízes padrão —
+a verificação TLS continua ativa, e um teste garante que ele é assinado por uma raiz confiável do Node.
+Junto, o `User-Agent` passou a ser só ASCII: com acento, o IBGE respondia 400 a tudo.
+
 ## Termos das fontes
 - **Open-Meteo:** uso não comercial, < 10.000 chamadas/dia, atribuição CC BY 4.0 (exibida na
   interface e em `clima.atribuicao`). O cache mantém o volume baixo.

@@ -1,6 +1,8 @@
 // Cliente HTTP para as fontes externas: timeout por tentativa, novas tentativas limitadas apenas para
 // erros transitórios (rede, timeout, 5xx, 429) com espera crescente, e erros tipados.
 
+import { fetchComCadeia } from "./cadeia-tls";
+
 export type SourceErrorKind = "timeout" | "rede" | "http" | "formato";
 
 export class SourceError extends Error {
@@ -31,7 +33,7 @@ const defaultSleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export const USER_AGENT = "portfolio-api-municipios (projeto de portfolio)";
 
 export async function fetchJson<T>(url: string, opts: FetchOptions = {}): Promise<T> {
-  const { timeoutMs = 3000, retries = 2, backoffMs = 250, fetchImpl = fetch, sleep = defaultSleep } = opts;
+  const { timeoutMs = 3000, retries = 2, backoffMs = 250, fetchImpl = fetchComCadeia, sleep = defaultSleep } = opts;
   let lastError: SourceError | undefined;
   for (let attempt = 0; attempt <= retries; attempt++) {
     if (attempt > 0) await sleep(backoffMs * 2 ** (attempt - 1)); // 250 ms, 500 ms
