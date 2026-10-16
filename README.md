@@ -8,6 +8,8 @@
 
 ## Telas
 
+▶ **[Vídeo da demonstração](docs/demo.mp4)** (1 a 2 min, com legenda em cada funcionalidade).
+
 <table>
   <tr>
     <td width="33%"><a href="docs/telas/docs.png"><img src="docs/telas/docs.png" alt="Documentação com exemplos e teste ao vivo"></a><br><sub>Documentação com exemplos e teste ao vivo</sub></td>
